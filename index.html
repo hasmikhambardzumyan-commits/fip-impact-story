@@ -138,7 +138,6 @@
       .reveal { opacity: 1; transform: none; transition: none; }
     }
   </style>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoGSm3Dq2VqCk=" crossorigin="">
 </head>
 <body>
   <div class="progress" aria-hidden="true"></div>
@@ -248,7 +247,6 @@
       <span class="section-no">05 · International uptake</span>
       <h2>The story travelled beyond its original newsroom</h2>
       <p class="lead">Cross-border citations extended the investigation’s lifespan and placed Armenian reporting inside a wider European discussion of Russian influence operations.</p>
-      <div class="map-wrap"><div id="uptake-map" role="region" aria-label="Interactive map of media references by country"></div><p class="map-note">Select a marker for a publication. Locations show outlet markets, not readership or independent impact.</p></div>
       <div class="outlets">
         <a class="outlet" href="https://www.zdg.md/stiri/politic/update-fip-am-un-fost-deputat-roman-in-slujba-kremlinului-ar-fi-trebuit-sa-o-acuze-pe-maia-sandu-ca-i-a-propus-150-de-mii-de-euro-reactia-lui-sebastian-ghita-nu-va-fi-presedintele-romaniei/" target="_blank" rel="noreferrer"><span class="country">Moldova</span><h3>Ziarul de Gardă</h3><p>Reported the Moldova-related findings and sought a response from a named Romanian political figure.</p><em>Read publication ↗</em></a>
         <a class="outlet" href="https://www.occrp.org/en/investigation/leaked-documents-reveal-russian-cognitive-strikes-against-the-west-including-islamophobic-pig-head-attacks-in-paris" target="_blank" rel="noreferrer"><span class="country">International</span><h3>OCCRP</h3><p>Cited FIP.am while expanding the investigation across borders.</p><em>Read investigation ↗</em></a>
@@ -323,11 +321,10 @@
   </section>
 
   <footer>Master’s final project · Multimedia Journalism and Media Management · GIPA · 2026</footer>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
     const milestones=["The original investigation was published in Armenian, English and Russian, accompanied by an explainer video.","Domestic reporting and social sharing increased visibility. Reposts are not counted as independent investigations.","Regional and European outlets cited or developed elements of the investigation; timing alone does not prove influence.","OCCRP and Bloomberg explicitly credited FIP.am and conducted further reporting, a stronger form of professional uptake.","Researchers and experts subsequently cited or discussed the case. No causal policy impact has been established."];
     document.querySelectorAll('[data-stage]').forEach(button=>button.addEventListener('click',()=>{document.getElementById('timeline-detail').textContent=milestones[Number(button.dataset.stage)];document.querySelectorAll('[data-stage]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));}));
-    if(window.L){const map=L.map('uptake-map',{scrollWheelZoom:false}).setView([43,9],3);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:18}).addTo(map);const markets=[['Armenia',40.18,44.51,'FIP.am','https://fip.am/en/48768'],['Moldova',47.01,28.86,'Ziarul de Gardă','https://www.zdg.md/stiri/politic/update-fip-am-un-fost-deputat-roman-in-slujba-kremlinului-ar-fi-trebuit-sa-o-acuze-pe-maia-sandu-ca-i-a-propus-150-de-mii-de-euro-reactia-lui-sebastian-ghita-nu-va-fi-presedintele-romaniei/'],['France',48.86,2.35,'Le Monde','https://www.lemonde.fr/pixels/article/2026/05/24/tetes-de-cochon-synagogues-vertes-dans-les-coulisses-des-operations-de-desinformation-russes-visant-la-france_6693205_4408996.html'],['United States',40.71,-74.01,'Bloomberg','https://www.bloomberg.com/news/features/2026-06-23/leaked-files-show-russia-s-plan-to-influence-ai-and-search-results'],['Japan',35.68,139.69,'The Japan Times','https://www.japantimes.co.jp/news/2026/06/24/world/politics/russia-wiki-warfare/'],['Italy',41.90,12.50,'Valigia Blu','https://www.valigiablu.it/attacchi-cognitivi-russia-occidente-europa/']];markets.push(['Bosnia and Herzegovina',43.85,18.41,'Žurnal','https://www.zurnal.info/clanak/ruska-predsjednicka-administracija-pripremala-napade-na-dzamije-u-parizu/28982']);markets.forEach(([country,lat,lon,outlet,url])=>L.marker([lat,lon]).addTo(map).bindPopup('<strong>'+country+'</strong><p>'+outlet+'</p><a href="'+url+'" target="_blank" rel="noopener noreferrer">Visit outlet</a>'));setTimeout(()=>map.invalidateSize(),150);}
+
     const progress = document.querySelector('.progress');
     const updateProgress = () => {
       const max = document.documentElement.scrollHeight - innerHeight;
