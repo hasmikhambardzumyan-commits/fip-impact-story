@@ -100,6 +100,12 @@
     .quote { padding: 30px; background: #17191c; color: white; }
     .quote blockquote { margin: 0 0 22px; font-size: 1.35rem; line-height: 1.45; }
     .quote cite { color: #bbbcc0; font-size: .82rem; font-style: normal; }
+    .people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 42px; }
+    .person { overflow: hidden; background: var(--card); border: 1px solid var(--line); }
+    .person img { display: block; width: 100%; height: 250px; object-fit: cover; object-position: center top; filter: saturate(.82); }
+    .person-body { padding: 20px; }
+    .person h3 { margin-bottom: 6px; font-size: 1.25rem; }
+    .person p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.45; }
     .limits { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     .limits ul { padding-left: 20px; }
     .limits li { margin-bottom: 12px; }
@@ -111,6 +117,7 @@
     .reveal.on { opacity: 1; transform: none; }
     @media (max-width: 800px) {
       .fact-row, .outlets { grid-template-columns: 1fr 1fr; }
+      .people { grid-template-columns: 1fr 1fr; }
       .split, .limits { grid-template-columns: 1fr; gap: 34px; }
       .evidence-grid { grid-template-columns: 1fr; }
       .timeline { grid-template-columns: 1fr; margin-left: 7px; }
@@ -121,7 +128,7 @@
       .nav span { display: none; }
       .hero { min-height: 76vh; }
       .section { padding: 72px 0; }
-      .fact-row, .metrics, .outlets, .quotes { grid-template-columns: 1fr; }
+      .fact-row, .metrics, .outlets, .quotes, .people { grid-template-columns: 1fr; }
       .media-panel { grid-template-columns: 1fr; padding: 28px; }
       .evidence-grid img { height: auto; }
     }
@@ -257,6 +264,24 @@
       <span class="section-no">06 · Professional uptake</span>
       <h2>Journalists and specialists read impact differently</h2>
       <p class="lead">Interviews and professional responses help explain what analytics cannot: how the investigation was assessed, reused and understood inside the fact-checking and FIMI community.</p>
+      <div class="people">
+        <article class="person">
+          <img src="https://media.am/wp-content/uploads/2020/12/ophelia-simonyan.jpg" alt="Ophelia Simonyan" loading="lazy">
+          <div class="person-body"><h3>Ophelia Simonyan</h3><p>Journalist and fact-checker, Media.am’s “Verified” project</p></div>
+        </article>
+        <article class="person">
+          <img src="https://www.freiheit.org/sites/default/files/styles/facebook_share/public/2022-02/1.-abrahamyan-1920x1080.jpg?itok=ewZSYN4c" alt="Gayane Abrahamyan" loading="lazy">
+          <div class="person-body"><h3>Gayane Abrahamyan</h3><p>Journalist and founding president, For Equal Rights Educational Center</p></div>
+        </article>
+        <article class="person">
+          <img src="https://1tv.am/images/video/9/42902/harcazruyc.jpeg" alt="Elen Hokhikyan" loading="lazy">
+          <div class="person-body"><h3>Elen Hokhikyan</h3><p>Foreign policy and security analyst; senior expert at WGSA</p></div>
+        </article>
+        <article class="person">
+          <img src="https://watchdog.md/wp-content/uploads/2023/06/Valeriu-Pasa.jpg" alt="Valeriu Pașa" loading="lazy">
+          <div class="person-body"><h3>Valeriu Pașa</h3><p>Chairman and senior policy expert, WatchDog.MD Community</p></div>
+        </article>
+      </div>
       <div class="quotes">
         <div class="quote"><blockquote>Fact-checking establishes whether a claim is false. FIMI analysis asks the additional questions: who benefits, how is it distributed, and is the behaviour coordinated?</blockquote><cite>Analytical synthesis from the interviews</cite></div>
         <div class="quote"><blockquote>The investigation’s international value lies in showing that locally obtained evidence can illuminate operations whose targets and consequences cross national borders.</blockquote><cite>Analytical synthesis from the interviews</cite></div>
