@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A multimedia case study of the domestic and international reach of FIP.am's investigation into Kremlin-linked hybrid influence campaigns.">
+  <title>After the Investigation — FIP.am Impact Story</title>
+  <style>
+    :root {
+      --ink: #15171a;
+      --muted: #62666d;
+      --paper: #f3f0e9;
+      --card: #fffdf8;
+      --red: #b9232f;
+      --red-dark: #7e111c;
+      --line: #d8d2c7;
+      --blue: #35586f;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .progress { position: fixed; inset: 0 auto auto 0; z-index: 20; height: 4px; width: 0; background: var(--red); }
+    .nav {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px max(20px, calc((100vw - var(--max)) / 2));
+      background: rgba(243,240,233,.93); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(216,210,199,.8);
+      font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
+    }
+    .nav strong { color: var(--red); }
+    .nav a { text-decoration: none; }
+    .hero {
+      min-height: 84vh; display: grid; align-items: end;
+      padding: 9vh max(22px, calc((100vw - var(--max)) / 2)) 8vh;
+      color: white;
+      background:
+        radial-gradient(circle at 82% 22%, rgba(185,35,47,.35), transparent 24%),
+        linear-gradient(120deg, #0d1014 0%, #17191c 55%, #401017 100%);
+      overflow: hidden;
+    }
+    .hero-inner { max-width: 920px; position: relative; }
+    .kicker { margin: 0 0 18px; color: #f2b9be; font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1, h2, h3, blockquote { font-family: Georgia, "Times New Roman", serif; }
+    h1 { margin: 0; max-width: 920px; font-size: clamp(3.2rem, 8vw, 7.5rem); line-height: .92; letter-spacing: -.055em; }
+    .dek { max-width: 760px; margin: 30px 0 18px; font-size: clamp(1.15rem, 2.2vw, 1.55rem); line-height: 1.45; color: #ece7e3; }
+    .byline { color: #cabfc0; font-size: .93rem; }
+    main { overflow: hidden; }
+    .section { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; padding: 100px 0; border-bottom: 1px solid var(--line); }
+    .narrow { max-width: 760px; }
+    .section-no { display: block; margin-bottom: 14px; color: var(--red); font-size: .75rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    h2 { margin: 0 0 28px; max-width: 850px; font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: 1.05; letter-spacing: -.035em; }
+    h3 { margin: 0 0 10px; font-size: 1.45rem; line-height: 1.2; }
+    .lead { max-width: 780px; font-size: 1.28rem; line-height: 1.65; }
+    .dropcap::first-letter { float: left; margin: .09em .12em 0 0; color: var(--red); font: 5.3rem/.72 Georgia, serif; }
+    .fact-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 42px; }
+    .fact { padding: 26px 22px; background: var(--card); border-top: 4px solid var(--red); box-shadow: 0 8px 30px rgba(25,20,16,.06); }
+    .fact b { display: block; font: 700 clamp(2rem, 4vw, 3.3rem)/1 Georgia, serif; letter-spacing: -.04em; }
+    .fact span { display: block; margin-top: 10px; color: var(--muted); font-size: .87rem; line-height: 1.35; }
+    .timeline { margin-top: 52px; display: grid; grid-template-columns: repeat(5, 1fr); }
+    .step { position: relative; padding: 52px 18px 0 0; border-top: 2px solid var(--ink); }
+    .step::before { content: ""; position: absolute; top: -8px; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--red); }
+    .step b { display: block; font-size: .95rem; }
+    .step span { color: var(--muted); font-size: .82rem; line-height: 1.4; }
+    .split { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; align-items: start; }
+    .process { display: grid; gap: 14px; counter-reset: process; }
+    .process article { counter-increment: process; position: relative; padding: 24px 24px 24px 68px; background: var(--card); border: 1px solid var(--line); }
+    .process article::before { content: counter(process, decimal-leading-zero); position: absolute; left: 22px; top: 22px; color: var(--red); font-weight: 800; }
+    .media-panel { margin-top: 55px; padding: 38px; color: white; background: #17191c; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; }
+    .media-panel p { margin: 5px 0 0; color: #bbbcc0; }
+    figure { margin: 0; }
+    .evidence-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; margin-top: 22px; }
+    .evidence-grid figure { background: var(--card); border: 1px solid var(--line); }
+    .evidence-grid img { display: block; width: 100%; height: 360px; object-fit: cover; object-position: top; }
+    figcaption { padding: 12px 15px; color: var(--muted); font-size: .78rem; line-height: 1.4; }
+    .button { display: inline-block; padding: 13px 18px; color: white; background: var(--red); text-decoration: none; font-weight: 750; font-size: .86rem; }
+    .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 42px; }
+    .metric-card { padding: 30px; background: var(--card); border: 1px solid var(--line); }
+    .metric-head { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+    .metric-head b { font: 700 2.3rem/1 Georgia, serif; }
+    .bar { height: 9px; margin: 20px 0 12px; background: #dfd9d0; overflow: hidden; }
+    .bar i { display: block; height: 100%; background: var(--red); }
+    .mini { color: var(--muted); font-size: .83rem; }
+    .callout { margin: 52px 0 0; padding: 34px; border-left: 6px solid var(--red); background: #e8e2d8; font: 1.5rem/1.45 Georgia, serif; }
+    .outlets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
+    .outlet { min-height: 210px; padding: 25px; background: var(--card); border: 1px solid var(--line); text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; }
+    .outlet:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(22,18,16,.09); }
+    .country { color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .outlet p { color: var(--muted); font-size: .9rem; line-height: 1.5; }
+    .outlet em { display: block; margin-top: 18px; color: var(--blue); font-size: .82rem; font-style: normal; font-weight: 750; }
+    .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 42px; }
+    .quote { padding: 30px; background: #17191c; color: white; }
+    .quote blockquote { margin: 0 0 22px; font-size: 1.35rem; line-height: 1.45; }
+    .quote cite { color: #bbbcc0; font-size: .82rem; font-style: normal; }
+    .limits { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .limits ul { padding-left: 20px; }
+    .limits li { margin-bottom: 12px; }
+    .about { color: white; background: var(--red-dark); }
+    .about .section { border: 0; }
+    .about p { max-width: 730px; color: #f1dfe1; }
+    footer { padding: 30px 22px; text-align: center; color: var(--muted); font-size: .78rem; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.on { opacity: 1; transform: none; }
+    @media (max-width: 800px) {
+      .fact-row, .outlets { grid-template-columns: 1fr 1fr; }
+      .split, .limits { grid-template-columns: 1fr; gap: 34px; }
+      .evidence-grid { grid-template-columns: 1fr; }
+      .timeline { grid-template-columns: 1fr; margin-left: 7px; }
+      .step { padding: 10px 0 30px 30px; border-top: 0; border-left: 2px solid var(--ink); }
+      .step::before { top: 4px; left: -8px; }
+    }
+    @media (max-width: 560px) {
+      .nav span { display: none; }
+      .hero { min-height: 76vh; }
+      .section { padding: 72px 0; }
+      .fact-row, .metrics, .outlets, .quotes { grid-template-columns: 1fr; }
+      .media-panel { grid-template-columns: 1fr; padding: 28px; }
+      .evidence-grid img { height: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <nav class="nav"><strong>FIP.am · Impact case study</strong><span>Hasmik Hambardzumyan · 2026</span><a href="#sources">Sources ↓</a></nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="kicker">From exposure to impact</p>
+      <h1>After the Investigation</h1>
+      <p class="dek">How FIP.am’s investigation into Kremlin-linked hybrid campaigns moved across languages, platforms and borders—and what happened after publication.</p>
+      <p class="byline">A multimedia case study by Hasmik Hambardzumyan</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section reveal">
+      <div class="narrow">
+        <span class="section-no">01 · The question</span>
+        <h2>Exposure is a beginning, not an outcome.</h2>
+        <p class="lead dropcap">Investigative journalism can reveal the architecture of a foreign influence operation. But publication alone does not establish impact. This story follows the evidence after FIP.am’s investigation was released: who encountered it, who amplified it, how it travelled internationally, and where the available evidence stops.</p>
+      </div>
+      <div class="fact-row">
+        <div class="fact"><b>3</b><span>language versions: Armenian, Russian and English</span></div>
+        <div class="fact"><b>2</b><span>journalists worked on the underlying documents</span></div>
+        <div class="fact"><b>≈70</b><span>pages of internal working correspondence examined</span></div>
+        <div class="fact"><b>2:12</b><span>duration of the accompanying explainer video</span></div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="split">
+        <div>
+          <span class="section-no">02 · The evidence</span>
+          <h2>Inside a concealed influence infrastructure</h2>
+          <p>The documents were obtained by the newsroom from a source. They contained working correspondence attributed to employees of the Social Design Agency (SDA), with participants communicating under pseudonyms.</p>
+          <p>The reporting task was not simply to reproduce leaked claims. The newsroom had to identify actors and operations, connect the correspondence to observable events, and distinguish documented evidence from inference.</p>
+        </div>
+        <div class="process">
+          <article><h3>Source assessment</h3><p>Review the provenance, internal coherence and evidentiary limits of the documents.</p></article>
+          <article><h3>Cross-verification</h3><p>Compare names, dates, narratives and operational details with public records and previously documented activity.</p></article>
+          <article><h3>Attribution</h3><p>Separate what the documents directly demonstrate from what can only be assessed with supporting external evidence.</p></article>
+          <article><h3>Editorial production</h3><p>Turn a document-heavy investigation into a multilingual article and a concise visual explainer for wider audiences.</p></article>
+        </div>
+      </div>
+      <div class="media-panel">
+        <div><h3>The original investigation</h3><p>Read the English version and access the article’s supporting multimedia material.</p></div>
+        <a class="button" href="https://fip.am/en/48768" target="_blank" rel="noreferrer">Open on FIP.am ↗</a>
+      </div>
+      <div class="evidence-grid">
+        <figure>
+          <img src="https://fip.am/wp-content/uploads/2026/05/Untitled-design-22.png" alt="Screenshot of internal correspondence examined by FIP.am" loading="lazy">
+          <figcaption>Working correspondence examined during the investigation. Source: FIP.am.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://fip.am/wp-content/uploads/2026/05/Untitled-design-19.png" alt="Screenshot from an internal operation report documented by FIP.am" loading="lazy">
+          <figcaption>An internal operation report documenting amplification. Source: FIP.am.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://fip.am/wp-content/uploads/2026/05/Untitled-design-21.png" alt="Document showing a media network connected to the Social Design Agency" loading="lazy">
+          <figcaption>A document mapping a media resource within the agency’s network. Source: FIP.am.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://fip.am/wp-content/uploads/2026/05/Untitled-design-16.png" alt="Document describing a self-completing knowledge base project targeting Armenia" loading="lazy">
+          <figcaption>The “Self-Completing Knowledge Base–Armenia” project. Source: FIP.am.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <span class="section-no">03 · The pathway</span>
+      <h2>Impact unfolded in stages</h2>
+      <p class="lead">The analysis treats impact as a sequence of observable signals rather than a single claim.</p>
+      <div class="timeline">
+        <div class="step"><b>Publication</b><span>Three language versions and video</span></div>
+        <div class="step"><b>Reach</b><span>Website and platform exposure</span></div>
+        <div class="step"><b>Amplification</b><span>Shares, reposts and media citations</span></div>
+        <div class="step"><b>Professional uptake</b><span>Use by journalists and experts</span></div>
+        <div class="step"><b>Institutional response</b><span>Evidence remains limited</span></div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <span class="section-no">04 · Audience reach</span>
+      <h2>A multilingual investigation met different audiences</h2>
+      <div class="metrics">
+        <div class="metric-card">
+          <div class="metric-head"><h3>Website</h3><b>32,764</b></div>
+          <div class="bar"><i style="width:12%"></i></div>
+          <p class="mini">Combined page views across the Armenian, Russian and English versions.</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-head"><h3>Facebook video</h3><b>273,285</b></div>
+          <div class="bar"><i style="width:100%"></i></div>
+          <p class="mini">186,666 people reached · 1,324 shares.</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-head"><h3>Instagram video</h3><b>24,560</b></div>
+          <div class="bar"><i style="width:9%"></i></div>
+          <p class="mini">20,363 people reached · 451 shares.</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-head"><h3>Languages</h3><b>3</b></div>
+          <div class="bar"><i style="width:67%"></i></div>
+          <p class="mini">Translation functioned as a distribution strategy, not simply a reproduction step.</p>
+        </div>
+      </div>
+      <p class="callout">Reach shows exposure. Shares show circulation. Neither metric, on its own, demonstrates a change in public attitudes, policy or institutional behaviour.</p>
+    </section>
+
+    <section class="section reveal">
+      <span class="section-no">05 · International uptake</span>
+      <h2>The story travelled beyond its original newsroom</h2>
+      <p class="lead">Cross-border citations extended the investigation’s lifespan and placed Armenian reporting inside a wider European discussion of Russian influence operations.</p>
+      <div class="outlets">
+        <a class="outlet" href="https://www.zdg.md/stiri/politic/update-fip-am-un-fost-deputat-roman-in-slujba-kremlinului-ar-fi-trebuit-sa-o-acuze-pe-maia-sandu-ca-i-a-propus-150-de-mii-de-euro-reactia-lui-sebastian-ghita-nu-va-fi-presedintele-romaniei/" target="_blank" rel="noreferrer"><span class="country">Moldova</span><h3>Ziarul de Gardă</h3><p>Reported the Moldova-related findings and sought a response from a named Romanian political figure.</p><em>Read publication ↗</em></a>
+        <a class="outlet" href="https://www.valigiablu.it/attacchi-cognitivi-russia-occidente-europa/" target="_blank" rel="noreferrer"><span class="country">Italy</span><h3>Valigia Blu</h3><p>Placed the documented operations within a broader account of Russian cognitive attacks against Europe.</p><em>Read publication ↗</em></a>
+        <a class="outlet" href="https://www.lemonde.fr/pixels/article/2026/05/24/tetes-de-cochon-synagogues-vertes-dans-les-coulisses-des-operations-de-desinformation-russes-visant-la-france_6693205_4408996.html" target="_blank" rel="noreferrer"><span class="country">France</span><h3>Le Monde</h3><p>Examined the operational background of Russian disinformation activity targeting France.</p><em>Read publication ↗</em></a>
+        <a class="outlet" href="https://www.zurnal.info/clanak/ruska-predsjednicka-administracija-pripremala-napade-na-dzamije-u-parizu/28982" target="_blank" rel="noreferrer"><span class="country">Bosnia and Herzegovina</span><h3>Žurnal</h3><p>Covered allegations concerning planned provocations against religious sites in Paris.</p><em>Read publication ↗</em></a>
+        <a class="outlet" href="https://www.japantimes.co.jp/news/2026/06/24/world/politics/russia-wiki-warfare/" target="_blank" rel="noreferrer"><span class="country">Japan</span><h3>The Japan Times</h3><p>Connected the wider influence infrastructure to information operations involving Wikipedia.</p><em>Read publication ↗</em></a>
+        <a class="outlet" href="https://fip.am/en/48768" target="_blank" rel="noreferrer"><span class="country">Armenia</span><h3>FIP.am</h3><p>The originating investigation, published for domestic and international audiences.</p><em>Read original ↗</em></a>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <span class="section-no">06 · Professional uptake</span>
+      <h2>Journalists and specialists read impact differently</h2>
+      <p class="lead">Interviews and professional responses help explain what analytics cannot: how the investigation was assessed, reused and understood inside the fact-checking and FIMI community.</p>
+      <div class="quotes">
+        <div class="quote"><blockquote>Fact-checking establishes whether a claim is false. FIMI analysis asks the additional questions: who benefits, how is it distributed, and is the behaviour coordinated?</blockquote><cite>Analytical synthesis from the interviews</cite></div>
+        <div class="quote"><blockquote>The investigation’s international value lies in showing that locally obtained evidence can illuminate operations whose targets and consequences cross national borders.</blockquote><cite>Analytical synthesis from the interviews</cite></div>
+      </div>
+      <p class="mini">Named quotations from Ofelya Simonyan, Gayane Abrahamyan, Elen Hovhikyan and Valeriu Pașa will be added after final quote approval.</p>
+    </section>
+
+    <section class="section reveal" id="sources">
+      <span class="section-no">07 · Methods and limits</span>
+      <h2>What the evidence supports—and what it does not</h2>
+      <div class="limits">
+        <div>
+          <h3>Evidence used</h3>
+          <ul>
+            <li>Website analytics for three language versions</li>
+            <li>Facebook and Instagram platform metrics</li>
+            <li>Media monitoring and citation tracking</li>
+            <li>Semi-structured interviews and a documented public expert response</li>
+            <li>Newsroom production records and source material</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Limits</h3>
+          <ul>
+            <li>Platform metrics are not directly comparable across services.</li>
+            <li>Public citation tracking cannot capture private or unlinked use.</li>
+            <li>Interviews provide informed interpretations, not population-level evidence.</li>
+            <li>No causal claim is made about policy change or audience attitudes.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="about">
+    <div class="section">
+      <span class="section-no" style="color:#f1b5bb">About the author</span>
+      <h2>Hasmik Hambardzumyan</h2>
+      <p>Hasmik Hambardzumyan is editor-in-chief of the Fact Investigation Platform (FIP.am). Her work focuses on fact-checking, foreign information manipulation and interference, election-related information integrity and investigative journalism in Armenia.</p>
+      <a class="button" href="https://fip.am/en/48768" target="_blank" rel="noreferrer" style="background:white;color:#7e111c">Visit the original investigation ↗</a>
+    </div>
+  </section>
+
+  <footer>Master’s final project · Multimedia Journalism and Media Management · GIPA · 2026</footer>
+  <script>
+    const progress = document.querySelector('.progress');
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
+    };
+    addEventListener('scroll', updateProgress, {passive:true});
+    updateProgress();
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('on');
+    }), {threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
