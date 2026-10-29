@@ -96,6 +96,7 @@
     .country { color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
     .outlet p { color: var(--muted); font-size: .9rem; line-height: 1.5; }
     .outlet em { display: block; margin-top: 18px; color: var(--blue); font-size: .82rem; font-style: normal; font-weight: 750; }
+    .video-embed{aspect-ratio:16/9;margin:28px 0;background:#15171a}.video-embed iframe{width:100%;height:100%;border:0}.timeline button{cursor:pointer;text-align:left;border:0;font:inherit;color:inherit}.timeline-detail,.language-bars{background:var(--card);padding:22px;margin:20px 0}.timeline-detail{border-left:4px solid var(--red)}.language-bar{display:grid;grid-template-columns:100px 1fr 75px;gap:12px;align-items:center;margin:14px 0}.language-bar i{display:block;height:18px;background:var(--red)}.language-bar b{text-align:right}.map-wrap{margin:25px 0 35px;background:#e8e6df}#uptake-map{height:410px;z-index:1}.map-note{padding:12px 16px;font-size:.85rem;color:var(--muted)}.timeline button:focus-visible{outline:3px solid var(--red)}
     .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 42px; }
     .quote { padding: 30px; background: #17191c; color: white; }
     .quote blockquote { margin: 0 0 22px; font-size: 1.35rem; line-height: 1.45; }
@@ -137,6 +138,7 @@
       .reveal { opacity: 1; transform: none; transition: none; }
     }
   </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoGSm3Dq2VqCk=" crossorigin="">
 </head>
 <body>
   <div class="progress" aria-hidden="true"></div>
@@ -185,6 +187,7 @@
         <div><h3>The original investigation</h3><p>Read the English version and access the article’s supporting multimedia material.</p></div>
         <a class="button" href="https://fip.am/en/48768" target="_blank" rel="noreferrer">Open on FIP.am ↗</a>
       </div>
+      <div class="video-embed"><iframe src="https://www.youtube.com/embed/wa98JTgTDO4?si=AELIeeqxxF51MbZS" title="FIP.am investigation explainer" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
       <div class="evidence-grid">
         <figure>
           <img src="https://fip.am/wp-content/uploads/2026/05/Untitled-design-22.png" alt="Screenshot of internal correspondence examined by FIP.am" loading="lazy">
@@ -209,18 +212,13 @@
       <span class="section-no">03 · The pathway</span>
       <h2>Impact unfolded in stages</h2>
       <p class="lead">The analysis treats impact as a sequence of observable signals rather than a single claim.</p>
-      <div class="timeline">
-        <div class="step"><b>Publication</b><span>Three language versions and video</span></div>
-        <div class="step"><b>Reach</b><span>Website and platform exposure</span></div>
-        <div class="step"><b>Amplification</b><span>Shares, reposts and media citations</span></div>
-        <div class="step"><b>Professional uptake</b><span>Use by journalists and experts</span></div>
-        <div class="step"><b>Institutional response</b><span>Evidence remains limited</span></div>
-      </div>
+      <div class="timeline"><button class="step" type="button" data-stage="0"><b>16 May 2026</b><span>FIP.am publication</span></button><button class="step" type="button" data-stage="1"><b>May 2026</b><span>Domestic media amplification</span></button><button class="step" type="button" data-stage="2"><b>Late May 2026</b><span>Regional and European citations</span></button><button class="step" type="button" data-stage="3"><b>June 2026</b><span>OCCRP and Bloomberg follow-up</span></button><button class="step" type="button" data-stage="4"><b>Through October</b><span>Professional use and analysis</span></button></div><div class="timeline-detail" id="timeline-detail" role="status">Select a milestone to explore the evidence.</div>
     </section>
 
     <section class="section reveal">
       <span class="section-no">04 · Audience reach</span>
       <h2>A multilingual investigation met different audiences</h2>
+      <div class="language-bars"><h3>Website page views by language</h3><div class="language-bar"><span>Armenian</span><div><i style="width:100%"></i></div><b>20,821</b></div><div class="language-bar"><span>English</span><div><i style="width:35.85%"></i></div><b>7,464</b></div><div class="language-bar"><span>Russian</span><div><i style="width:21.51%"></i></div><b>4,479</b></div><p class="mini">Page views are not unique readers; video-platform metrics are not directly comparable.</p></div>
       <div class="metrics">
         <div class="metric-card">
           <div class="metric-head"><h3>Website</h3><b>32,764</b></div>
@@ -250,6 +248,7 @@
       <span class="section-no">05 · International uptake</span>
       <h2>The story travelled beyond its original newsroom</h2>
       <p class="lead">Cross-border citations extended the investigation’s lifespan and placed Armenian reporting inside a wider European discussion of Russian influence operations.</p>
+      <div class="map-wrap"><div id="uptake-map" role="region" aria-label="Interactive map of media references by country"></div><p class="map-note">Select a marker for a publication. Locations show outlet markets, not readership or independent impact.</p></div>
       <div class="outlets">
         <a class="outlet" href="https://www.zdg.md/stiri/politic/update-fip-am-un-fost-deputat-roman-in-slujba-kremlinului-ar-fi-trebuit-sa-o-acuze-pe-maia-sandu-ca-i-a-propus-150-de-mii-de-euro-reactia-lui-sebastian-ghita-nu-va-fi-presedintele-romaniei/" target="_blank" rel="noreferrer"><span class="country">Moldova</span><h3>Ziarul de Gardă</h3><p>Reported the Moldova-related findings and sought a response from a named Romanian political figure.</p><em>Read publication ↗</em></a>
         <a class="outlet" href="https://www.occrp.org/en/investigation/leaked-documents-reveal-russian-cognitive-strikes-against-the-west-including-islamophobic-pig-head-attacks-in-paris" target="_blank" rel="noreferrer"><span class="country">International</span><h3>OCCRP</h3><p>Cited FIP.am while expanding the investigation across borders.</p><em>Read investigation ↗</em></a>
@@ -284,11 +283,7 @@
           <div class="person-body"><h3>Valeriu Pașa</h3><p>Chairman and senior policy expert, WatchDog.MD Community</p></div>
         </article>
       </div>
-      <div class="quotes">
-        <div class="quote"><blockquote>Fact-checking establishes whether a claim is false. FIMI analysis asks the additional questions: who benefits, how is it distributed, and is the behaviour coordinated?</blockquote><cite>Analytical synthesis from the interviews</cite></div>
-        <div class="quote"><blockquote>The investigation’s international value lies in showing that locally obtained evidence can illuminate operations whose targets and consequences cross national borders.</blockquote><cite>Analytical synthesis from the interviews</cite></div>
-      </div>
-      <p class="mini">Direct quotations will be added after their final wording is approved.</p>
+      <div class="quotes"><div class="quote"><blockquote>“Fact-checking gives us the truth about a specific fact, while FIMI shows the larger strategy surrounding that fact.”</blockquote><cite>Ofelya Simonyan · Translated from Armenian interview; original: «փաստերի ստուգումը տալիս է ճշմարտությունը կոնկրետ փաստի մասին, իսկ FIMI-ն ցույց է տալիս այդ փաստի շուրջ ծավալված մեծ ռազմավարությունը»</cite></div><div class="quote"><blockquote>“But a coincidence of narratives alone does not prove a common commissioner.”</blockquote><cite>Gayane Abrahamyan · Translated from Armenian interview; original: «Բայց միայն նարատիվի համընկնումը չի ապացուցում միասնական պատվիրատու»</cite></div><div class="quote"><blockquote>“It is also important to distinguish indicators of information dissemination from its possible impact on public perceptions.”</blockquote><cite>Elen Hovhikyan · Translated from Armenian interview; original: «Կարևոր է նաև տարբերակել տեղեկատվության տարածման ցուցանիշները դրա՝ հանրային ընկալումների վրա ունեցած հնարավոր ազդեցությունից»</cite></div><div class="quote"><blockquote>“Armenian colleagues were very nice and sent me the whole package of leaked documents.”</blockquote><cite>Valeriu Pașa · From supplied English rendering of public Facebook statement; not an interview</cite></div></div><p class="mini">Interview quotations are English translations of the supplied Armenian responses. The Pașa quotation is from the supplied English rendering of his public statement.</p>
     </section>
 
     <section class="section reveal" id="sources">
@@ -328,7 +323,11 @@
   </section>
 
   <footer>Master’s final project · Multimedia Journalism and Media Management · GIPA · 2026</footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
+    const milestones=["The original investigation was published in Armenian, English and Russian, accompanied by an explainer video.","Domestic reporting and social sharing increased visibility. Reposts are not counted as independent investigations.","Regional and European outlets cited or developed elements of the investigation; timing alone does not prove influence.","OCCRP and Bloomberg explicitly credited FIP.am and conducted further reporting, a stronger form of professional uptake.","Researchers and experts subsequently cited or discussed the case. No causal policy impact has been established."];
+    document.querySelectorAll('[data-stage]').forEach(button=>button.addEventListener('click',()=>{document.getElementById('timeline-detail').textContent=milestones[Number(button.dataset.stage)];document.querySelectorAll('[data-stage]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));}));
+    if(window.L){const map=L.map('uptake-map',{scrollWheelZoom:false}).setView([43,9],3);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:18}).addTo(map);const markets=[['Armenia',40.18,44.51,'FIP.am','https://fip.am/en/48768'],['Moldova',47.01,28.86,'Ziarul de Gardă','https://www.zdg.md/'],['France',48.86,2.35,'Le Monde','https://www.lemonde.fr/'],['United States',40.71,-74.01,'Bloomberg','https://www.bloomberg.com/'],['Japan',35.68,139.69,'The Japan Times','https://www.japantimes.co.jp/'],['Italy',41.90,12.50,'Valigia Blu','https://www.valigiablu.it/']];markets.forEach(([country,lat,lon,outlet,url])=>L.marker([lat,lon]).addTo(map).bindPopup('<strong>'+country+'</strong><p>'+outlet+'</p><a href="'+url+'" target="_blank" rel="noopener noreferrer">Visit outlet</a>'));setTimeout(()=>map.invalidateSize(),150);}
     const progress = document.querySelector('.progress');
     const updateProgress = () => {
       const max = document.documentElement.scrollHeight - innerHeight;
